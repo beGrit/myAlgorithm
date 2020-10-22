@@ -1,4 +1,4 @@
-package leetcode.daily;
+package leetcode.daily.dataobject;
 
 
 /**
@@ -6,7 +6,7 @@ package leetcode.daily;
  */
 public class TreeNode {
 
-  int val;
+  public int val;
   public TreeNode left;
   public TreeNode right;
 

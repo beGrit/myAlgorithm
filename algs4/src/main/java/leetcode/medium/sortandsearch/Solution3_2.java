@@ -1,48 +1,80 @@
 package leetcode.medium.sortandsearch;
-
-import java.util.Random;
-
 /**
  * Author: lsf Time: 10/15/20-9:47 AM
  */
 public class Solution3_2 {
 
-  Random random = new Random();
+  public static void main(String[] args) {
+    Solution3_2 solution3_2 = new Solution3_2();
+    int[] nums = {3,2,3,1,2,4,5,5,6};
+    int k = 4;
+    int res = solution3_2.findKthLargest(nums, k);
+  }
 
   public int findKthLargest(int[] nums, int k) {
-    return quickSelect(nums, 0, nums.length - 1, nums.length - k);
+    int len = nums.length;
+    return quickSelect(nums, 0, len - 1, len - k);
   }
 
-  public int quickSelect(int[] a, int l, int r, int index) {
-    int q = randomPartition(a, l, r);
-    if (q == index) {
-      return a[q];
-    } else {
-      return q < index ? quickSelect(a, q + 1, r, index) : quickSelect(a, l, q - 1, index);
+  private int quickSelect(int[] nums, int lo, int hi, int k) {
+    if (lo >= hi) {
+      return nums[0];
     }
-  }
-
-  public int randomPartition(int[] a, int l, int r) {
-    int i = random.nextInt(r - l + 1) + l;
-    swap(a, i, r);
-    return partition(a, l, r);
-  }
-
-  public int partition(int[] a, int l, int r) {
-    int x = a[r], i = l - 1;
-    for (int j = l; j < r; ++j) {
-      if (a[j] <= x) {
-        swap(a, ++i, j);
+    int len = nums.length;
+    int index = partition(nums, lo, hi);
+    while (true) {
+      if (index < k) {
+        index = partition(nums, index + 1, hi);
+      } else if (index > k) {
+        index = partition(nums, lo, index -1);
+      } else {
+        return nums[index];
       }
     }
-    swap(a, i + 1, r);
-    return i + 1;
   }
 
-  public void swap(int[] a, int i, int j) {
-    int temp = a[i];
-    a[i] = a[j];
-    a[j] = temp;
+  // partition the subarray a[lo..hi] so that a[lo..j-1] <= a[j] <= a[j+1..hi]
+  // and return the index j.
+  private int partition(int[] nums, int lo, int hi) {
+    if (lo == hi) {
+      return lo;
+    }
+    int v = nums[lo];
+    int i = lo;
+    int j = hi + 1;
+    while (true) {
+      while (less(nums[++i], v)) {
+        if (i == hi) {
+          break;
+        }
+      }
+      while (less(v, nums[--j])) {
+        if (j == lo) {
+          break;
+        }
+      }
+      if (i >= j) {
+        break;
+      }
+      exch(nums, i, j);
+    }
+
+    exch(nums, lo, j);
+
+    return j;
   }
 
+  private void exch(int[] nums, int i, int j) {
+    int tmp = nums[i];
+    nums[i] = nums[j];
+    nums[j] = tmp;
+  }
+
+  private boolean less(int[] nums, int left, int right) {
+    return less(nums[left], nums[right]);
+  }
+
+  private boolean less(int i, int j) {
+    return i < j;
+  }
 }

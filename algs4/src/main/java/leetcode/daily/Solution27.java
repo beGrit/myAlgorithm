@@ -2,6 +2,7 @@ package leetcode.daily;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import leetcode.daily.dataobject.TreeNode;
 
 /**
  * Author: lsf Time: 9/16/20-8:46 AM

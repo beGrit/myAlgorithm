@@ -2,6 +2,7 @@ package leetcode.daily;
 
 import java.util.LinkedList;
 import java.util.List;
+import leetcode.daily.dataobject.TreeNode;
 
 /**
  * Author: lsf Time: 9/24/20-9:08 AM

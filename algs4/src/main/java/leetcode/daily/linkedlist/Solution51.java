@@ -1,6 +1,6 @@
 package leetcode.daily.linkedlist;
 
-import leetcode.daily.ListNode;
+import leetcode.daily.dataobject.ListNode;
 import leetcode.daily.ListUtil;
 
 /**

@@ -1,10 +1,11 @@
-package leetcode.daily;
+package leetcode.daily.util;
 
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
+import leetcode.daily.dataobject.TreeNode;
 
 /**
  * Author: lsf Time: 9/26/20-9:16 AM

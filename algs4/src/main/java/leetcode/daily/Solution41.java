@@ -3,7 +3,7 @@ package leetcode.daily;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-import sun.reflect.generics.tree.Tree;
+import leetcode.daily.dataobject.TreeNode;
 
 /**
  * Author: lsf Time: 9/29/20-12:21 PM

@@ -1,5 +1,7 @@
 package leetcode.daily;
 
+import leetcode.daily.dataobject.TreeNode;
+
 /**
  * Author: lsf Time: 10/12/20-9:10 AM
  */
