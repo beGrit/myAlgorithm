@@ -10,6 +10,11 @@ public class Solution1 {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();
+    int count = new Solution1().resolveSteps(N);
+    System.out.println(count);
+  }
+
+  public int resolveSteps(int N) {
     int count = 0;
     while (N != 1) {
       if (N % 2 == 0) {
@@ -19,6 +24,6 @@ public class Solution1 {
       }
       count++;
     }
-    System.out.println(count);
+    return count;
   }
 }

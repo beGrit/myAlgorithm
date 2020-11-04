@@ -1,4 +1,4 @@
-package leetcode.daily;
+package leetcode.daily.util;
 
 import leetcode.daily.dataobject.ListNode;
 

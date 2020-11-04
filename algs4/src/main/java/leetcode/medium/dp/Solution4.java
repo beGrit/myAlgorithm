@@ -34,7 +34,7 @@ public class Solution4 {
         maxLen++;
         d[maxLen] = nums[i];
       } else {
-        int l = 1, r = len, pos = 0;
+        int l = 1, r = maxLen, pos = 0;
         while (l <= r) {
           int mid = (l + r) >> 1;
           if (d[mid] < nums[i]) {

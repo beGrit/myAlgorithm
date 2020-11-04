@@ -135,10 +135,10 @@ public class Solution {
 
   public boolean containsDuplicate(int[] nums) {
     Boolean flag = false;
-    for (int i = 1; i<nums.length; i++) {
-      for (int j = i;j > 0 && nums[j] < nums[j - 1];j--) {
-        swap(nums,j,j - 1);
-        if (nums[j] == nums[j-1]) {
+    for (int i = 1; i < nums.length; i++) {
+      for (int j = i; j > 0 && nums[j] < nums[j - 1]; j--) {
+        swap(nums, j, j - 1);
+        if (nums[j] == nums[j - 1]) {
           flag = true;
           break;
         }
@@ -148,20 +148,20 @@ public class Solution {
   }
 
   public int[] intersect(int[] nums1, int[] nums2) {
-    int[] res = new int[Math.min(nums1.length,nums2.length)];
-    HashMap<Integer,Integer> map = new HashMap<Integer, Integer>();
+    int[] res = new int[Math.min(nums1.length, nums2.length)];
+    HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 
     for (int num : nums1) {
       if (map.containsKey(num)) {
-        map.put(num,map.get(num) + 1);
+        map.put(num, map.get(num) + 1);
       } else {
-        map.put(num,1);
+        map.put(num, 1);
       }
     }
     int k = 0;
     for (int num : nums2) {
       if (map.containsKey(num) && map.get(num) > 0) {
-        map.put(num,map.get(num) - 1);
+        map.put(num, map.get(num) - 1);
         res[k++] = num;
       } else {
         continue;
