@@ -5,6 +5,17 @@ package alg;
  */
 public class KMP {
 
+  public static void main(String[] args) {
+    KMP kmp = new KMP();
+    String temp = "ababababca";
+    String tar = "abababca";
+    int n = 0;
+    while (kmp.KMP(n, temp, tar) != -1) {
+
+    }
+    kmp.getNext("abab");
+  }
+
   public int[] getNext(String s) {
     int len = s.length();
     int next[] = new int[len + 1];
@@ -28,8 +39,43 @@ public class KMP {
     return next;
   }
 
-  public static void main(String[] args) {
-    KMP kmp = new KMP();
-    kmp.getNext("abab");
+  public int KMP(String temp, String tar) {
+    int[] next = getNext(tar);
+    int i = 0;
+    int j = 0;
+    while (i < temp.length() && j < tar.length()) {
+      if (j == -1 || temp.charAt(i) == tar.charAt(j)) {
+        i++;
+        j++;
+      } else {
+        j = next[j];
+      }
+    }
+
+    if (j == tar.length()) { // 匹配成功
+      return i - j;
+    } else { // 匹配失败
+      return -1;
+    }
+  }
+
+  public int KMP(int bg, String temp, String tar) {
+    int[] next = getNext(tar);
+    int i = bg;
+    int j = 0;
+    while (i < temp.length() && j < tar.length()) {
+      if (j == -1 || temp.charAt(i) == tar.charAt(j)) {
+        i++;
+        j++;
+      } else {
+        j = next[j];
+      }
+    }
+
+    if (j == tar.length()) { // 匹配成功
+      return i - j;
+    } else { // 匹配失败
+      return -1;
+    }
   }
 }
